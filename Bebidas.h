@@ -1,38 +1,41 @@
+#ifndef BEBIDAS_H
+#define BEBIDAS_H
+
+using namespace std;
+#include <iostream>
+#include <math.h>
 #include <string>
 
-class Bebida {
+#include "Orden.h"
 
-     private: 
-        string tipo;
-        string sabor; 
-        int tamaño; //tamaño en mililitros
-        float costo;  
+class Bebida : public Orden {
 
-    public: 
-        Bebida(){
-            tipo = "Agua";
-            sabor = "limon","Jamaica","Horchata";
-            tamanio = 500;
-            costo = 25;
+    private:
+        string sabor;
+    public:
+        // Constructores
+        Bebida(float _pre, string _tam, int _cant, string _sab) : 
+        Orden(_pre, _tam, _cant) {
+            sabor = _sab;
         }
-        string getTipo (){
-            return tipo;
+        // Getters
+        string getSabor() {
+            return sabor;
         }
-        void sentSabor (string sab){
-            Sabor = sab; 
+        // Setters
+        void setSabor(stirng _sab) {
+            sabor = _sab;
         }
-        int getTamanio(){
-            return tamanio;
+        // Métodos
+        int sumarSabor(){
+            sabo += 1;
+            return sabor
         }
-        float getCosto(){
-            return costo;
-        }
-        void imprimeDatos(){
-            cout << "Tipo: "<< tipo << endl;
-            cout << "Sabor: "<< sabor << endl;
-            cout << "Tamaño: "<< tamanio <<endl;
-            cout << "Costo: "<< costo << endl;
+        float totalCuentaB() {
+            return (sabo*25);
+            cout << "Preparando bebida(s)" << endl;
         }
 
 };
 
+#endif
