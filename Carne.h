@@ -1,24 +1,41 @@
+#ifndef CARNE_H
+#define CARNE_H
+
+using namespace std;
+#include <iostream>
+#include <math.h>
 #include <string>
 
-class Carne {
+#include "Orden.h"
+
+class Carne : public Orden {
 
     private:
         string termino;
-        int costos;
-    
     public:
-        Carne(){
-            termino = "Medio""3/4""Well done";
-            costos = 180;
+        // Constructores
+        Bebida(float _pre, string _tam, int _cant, string _term) : 
+        Orden(_pre, _tam, _cant) {
+            termino = _term;
         }
-        void sentTermino (string ter){
-            termino = ter; 
+        // Getters
+        string getTermino() {
+            return termino;
         }
-        int getCostos(){
-            return costos;
+        // Setters
+        void setTermino(stirng _term) {
+            termino = _term;
         }
-        Void imprimeEsti(){
-            cout << "Termino" << termino << endl;
-            cout << "Costos" << costos << endl;
+        // Métodos
+        int sumarTermino(){
+            termi += 1;
+            return termi
         }
+        float totalCuentaB() {
+            return (termi*150);
+            cout << "Preparando corte(s)" << endl;
+        }
+
 };
+
+#endif
