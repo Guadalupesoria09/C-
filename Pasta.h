@@ -1,31 +1,41 @@
+#ifndef PASTA_H
+#define PASTA_H
+
+using namespace std;
+#include <iostream>
+#include <math.h>
 #include <string>
 
-class Pasta {
+#include "Orden.h"
+
+class Pasta : public Orden {
 
     private:
-        string estilo;
-        int precio;
-        string tama;
-
+        string tipo;
     public:
-         Pasta(){
-            estilo = "Ravioli","Lasaña","Espagueti";
-            precio = 100,120,130;
-            tama = "Chica","Mediana","Grande";
+        // Constructores
+        Pasta(float _pre, string _tam, int _cant, string _tip) : 
+        Orden(_pre, _tam, _cant) {
+            tipo = _tip;
         }
-       void sentEstilo (string est){
-            estilo = est; 
+        // Getters
+        string getTipo() {
+            return tipo;
         }
-        int getPrecio (){
-            return sabor;
+        // Setters
+        void setTipo(stirng _tip) {
+            tipo = _tip;
         }
-        void sentTama (string tam){
-            tama = tam; 
+        // Métodos
+        int sumarTipo(){
+            ti += 1;
+            return ti
         }
-        void imprimeInfo(){
-            cout << "Estilo: "<< estilo << endl;
-            cout << "Precio: "<< precio << endl;
-            cout << "Tamaños: "<< tama << endl;
+        float totalCuentaP() {
+            return (ti*125);
+            cout << "Preparando pasta(s)" << endl;
         }
 
 };
+
+#endif
