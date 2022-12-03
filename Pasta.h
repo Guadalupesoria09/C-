@@ -1,41 +1,61 @@
 #ifndef PASTA_H
 #define PASTA_H
 
-using namespace std;
-#include <iostream>
-#include <math.h>
 #include <string>
+#include "Producto.h"
 
-#include "Orden.h"
+using namespace std;
 
-class Pasta : public Orden {
+class Pasta: public Producto{
 
-    private:
+    private: 
+
         string tipo;
+
     public:
-        // Constructores
-        Pasta(float _pre, string _tam, int _cant, string _tip) : 
-        Orden(_pre, _tam, _cant) {
-            tipo = _tip;
-        }
-        // Getters
-        string getTipo() {
-            return tipo;
-        }
-        // Setters
-        void setTipo(stirng _tip) {
-            tipo = _tip;
-        }
-        // Métodos
-        int sumarTipo(){
-            ti += 1;
-            return ti
-        }
-        float totalCuentaP() {
-            return (ti*125);
-            cout << "Preparando pasta(s)" << endl;
-        }
+
+        Pasta(string, float, string, string);
+        void setTipo(string);
+        string getTipo();
+        void getInfo();
+
 
 };
+
+
+/*Costructor de la clase pasta, hereda de productos.
+Este tiene las variables:
+(string) tipo
+(float) precio
+(string) tamanio
+(string) nombre
+*/
+Pasta::Pasta(string tip, float pre, string tam, string nom): Producto(pre, tam, nom)
+{
+
+    Pasta::tipo = tip;
+
+};
+//Devuelve el tipo de pasta (string)
+string Pasta::getTipo()
+{
+
+    return Pasta::tipo;
+
+};
+//Establece el tipo de pasta <string>
+void Pasta::setTipo(string tip)
+{
+
+    Pasta::tipo = tip ;
+
+};
+
+void Pasta::getInfo()
+{
+    cout<<tipo<<": ";
+    Producto::getInfo();
+    
+}
 
 #endif
