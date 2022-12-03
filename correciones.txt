@@ -1,0 +1,7 @@
+### Diseño clases sencillas completas (con todos los atributos y metodos requeridos). 
+##Avance 2
+
+Es el unico punto que faltó por cumplir durante las dos entregas que se realizaron a lo largo del curso. 
+Se realizaron los cambios correspondientes para cada clase, se implemento los metodos y atributos de cada una de ellas. Tomando en cuenta los comentarios se 
+completo de manera correcta los setters y getters de cada clase, asi como también se elimino del main la correspondiente menu, dejando unicamente el main.cpp
+y la agregación de la clase Pedido.h y Producto.h, se conservaron las demas clases de Bebida.h, Pasta.h y Carne.h
