@@ -1,30 +1,116 @@
 #include <iostream>
+#include <vector>
+
+#include "Pedido.h"
+#include "Bebida.h"
+#include "Carne.h"
+#include "Pasta.h"
+
 using namespace std;
 
-#include "Bebida.h"
-#include "Pasta.h"
-#include "Carne.h"
-#include "Restaurant.h"
+int main()
+{
 
-int main() {
+    cout<<"Ristorante la acelerina\nPrograma de control de pedidos";
+    int opc = 0;
+    int folio = 1;
+    vector< Pedido> Pedidos;
+    do
+    {
+        
+        system("cls");
 
-    Bebida b1(25, "grande", 1, "Limón");
-    Bebida b2(25, "mediana", 1, "Horchata");
-    Pasta p2(125, "chica", 1, "Lasaña");
-    Pasta p1(125, "mediana", 1, "Bolañeza");
-    Carne c1(150, "mediana", 1, "medio");
-    Carne c2(150, "grande", 1, "3/4");
+        cout<<"Seleccione una opcion:\n\n"
+        <<"1.-Generar pedido\n"
+        <<"2.-Ver pedido\n"
+        <<"3.-Generar cuenta\n"
+        <<"4.-Salir\n\n";
 
-    Restaurante rest;
-    rest.agregarOrden(b1);
-    rest.agregarOrden(b2);
-    rest.agregarOrden(p1);
-    rest.agregarOreden(p2);
-    rest.agregarOreden(c1);
-    rest.agregarOreden(c2);
+        cin>>opc;
+        cin.ignore(1024,'\n');
 
-    rest.restaurant();
+        switch (opc)
+        {
+        case 1:{
+            Pedido nuevo = Pedido(folio);
+            int opc_2 = 0;
+            do
+            {
+                system("cls");
+                cout<<"Seleccione una opcion para el pedido:\n\n"
+                <<"1.-Agregar producto\n"
+                <<"2.-Regresar\n\n";
+                cin>>opc_2;
+                cin.ignore(1024,'\n');
 
+                switch (opc_2)
+                {
+                case 1:
+                    nuevo.addProduct();
+                    break;
+                
+                }
 
-    return 0;
+            }while(opc_2 != 2);
+            Pedidos.push_back(nuevo);
+            system("cls");
+            cout<<"Folio del pedido: "<<nuevo.getNumero();
+            cin.get();
+            cin.ignore(1024,'\n');
+            folio++;
+        
+            break;
+        }
+        case 2:{
+
+            int clave;
+            cout<<"Ingrese el numero del pedido: ";
+            cin>>clave;
+            cin.ignore(1024,'\n');
+
+            for(int i = 0; i < Pedidos.size(); i++ )
+            {
+                int id = Pedidos[i].getNumero();
+
+                if(id == clave)
+                {
+                    Pedidos[i].showProductos();
+                    cin.get();
+                    cin.ignore(1024,'\n');
+                    break;
+                }
+            }
+            break;
+        }
+        case 3:{
+
+            int clave;
+            cout<<"Ingrese el numero del pedido: ";
+            cin>>clave;
+            cin.ignore(1024,'\n');
+
+            for(int i = 0; i < Pedidos.size(); i++ )
+            {
+                int id = Pedidos[i].getNumero();
+
+                if(id == clave)
+                {
+                    cout<<"Pedido No. "<<id<<"\tCantidad de productos: "<<Pedidos[i].totalProductos()<<"\n\n";
+                    Pedidos[i].showProductos();
+                    cout<<"\nTotal: $ "<<Pedidos[i].getTotal()<<"\n\nGracias por venir regrese pronto";
+                    cin.get();
+                    cin.ignore(1024,'\n');
+                    break;
+                }
+            }
+            break;
+
+        }
+        default:
+            break;
+        }
+
+    }
+    while(opc != 4);
+
 }
