@@ -1,41 +1,62 @@
 #ifndef CARNE_H
 #define CARNE_H
 
-using namespace std;
-#include <iostream>
-#include <math.h>
 #include <string>
+#include "Producto.h"
 
-#include "Orden.h"
+using namespace std;
 
-class Carne : public Orden {
+class Carne: public Producto{
 
-    private:
+    private: 
+
         string termino;
+
     public:
-        // Constructores
-        Bebida(float _pre, string _tam, int _cant, string _term) : 
-        Orden(_pre, _tam, _cant) {
-            termino = _term;
-        }
-        // Getters
-        string getTermino() {
-            return termino;
-        }
-        // Setters
-        void setTermino(stirng _term) {
-            termino = _term;
-        }
-        // Métodos
-        int sumarTermino(){
-            termi += 1;
-            return termi
-        }
-        float totalCuentaB() {
-            return (termi*150);
-            cout << "Preparando corte(s)" << endl;
-        }
+
+        Carne(string, float, string, string);
+        void setTermino(string);
+        string getTermino();
+        void getInfo();
+
 
 };
+
+
+/*Costructor de la clase carne, hereda de productos.
+Este tiene las variables:
+(string) termino
+(float) precio
+(string) tamanio
+(string) nombre
+*/
+Carne::Carne(string term, float pre, string tam, string nom): Producto(pre, tam, nom)
+{
+
+    Carne::termino = term;
+
+};
+//Devuelve el termino de la carne (string)
+string Carne::getTermino()
+{
+
+    return Carne::termino;
+
+};
+//Establece el termino de la carne <string>
+void Carne::setTermino(string term)
+{
+
+    Carne::termino = term ;
+
+};
+
+void Carne::getInfo()
+{
+    cout<<termino<<": ";
+    Producto::getInfo();
+    
+}
+
 
 #endif
